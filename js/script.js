@@ -68,6 +68,9 @@ const app = createApp({
             } else {
                 this.activeIndex--;
             }
+        },
+        showClicked: function(index) {
+            this.activeIndex = index;
         }
     }
 }).mount("#app");

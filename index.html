@@ -56,7 +56,7 @@
                         <img src="img/05.webp" alt="Avengers" />
                     </div> -->
                     <div v-for="(img, index) in slides" class="thumb" :class="index === activeIndex ? 'active' : ''">
-                        <img :src="img.image" alt="">
+                        <img @click="showClicked(index)" :src="img.image" alt="">
                     </div>
                 </div>
 
