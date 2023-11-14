@@ -54,22 +54,25 @@ const app = createApp({
             activeIndex: 0,
         };
     },
+    mounted() {
+        setInterval(this.showNext, 3000);
+    },
     methods: {
         showNext: function () {
-            if(this.activeIndex === this.slides.length - 1) {
+            if (this.activeIndex === this.slides.length - 1) {
                 this.activeIndex = 0;
             } else {
                 this.activeIndex++;
             }
         },
         showPrev: function () {
-            if(this.activeIndex === 0) {
+            if (this.activeIndex === 0) {
                 this.activeIndex = this.slides.length - 1;
             } else {
                 this.activeIndex--;
             }
         },
-        showClicked: function(index) {
+        showClicked: function (index) {
             this.activeIndex = index;
         }
     }
