@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
+    <!-- style css -->
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
@@ -17,7 +20,7 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
+                    <!-- <img src="img/01.webp" alt="Spiderman" />
                     <div class="text">
                         <h3>Spiderman</h3>
                         <p>
@@ -26,13 +29,18 @@
                             veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
                             corporis.
                         </p>
+                    </div> -->
+                    <img :src="slides[activeIndex].image" alt="">
+                    <div class="text">
+                        <h3>{{slides[activeIndex].title}}</h3>
+                        <p>{{slides[activeIndex].text}}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb active">
+                    <div @click="showPrev" class="prev"></div>
+                    <div @click="showNext" class="next"></div>
+                    <!-- <div class="thumb active">
                         <img src="img/01.webp" alt="Svezia" />
                     </div>
                     <div class="thumb">
@@ -46,6 +54,9 @@
                     </div>
                     <div class="thumb">
                         <img src="img/05.webp" alt="Avengers" />
+                    </div> -->
+                    <div v-for="(img, index) in slides" class="thumb" :class="index === activeIndex ? 'active' : ''">
+                        <img :src="img.image" alt="">
                     </div>
                 </div>
 
@@ -54,7 +65,7 @@
 
     </div>
 
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <!-- script js -->
     <script src="./js/script.js"></script>
 </body>
 
