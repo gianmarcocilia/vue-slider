@@ -52,10 +52,12 @@ const app = createApp({
                 }
             ],
             activeIndex: 0,
+            autoPlay: undefined
         };
     },
     mounted() {
-        setInterval(this.showNext, 3000);
+        console.log(this);
+        this.autoPlay = setInterval(this.showNext, 3000);
     },
     methods: {
         showNext: function () {
@@ -74,6 +76,12 @@ const app = createApp({
         },
         showClicked: function (index) {
             this.activeIndex = index;
+        },
+        mouseOver: function() {
+            clearInterval(this.autoPlay);
+        },
+        mouseLeave: function() {
+            this.autoPlay = setInterval(this.showNext, 3000)
         }
     }
 }).mount("#app");

@@ -30,7 +30,7 @@
                             corporis.
                         </p>
                     </div> -->
-                    <img :src="slides[activeIndex].image" alt="">
+                    <img @mouseover="mouseOver" @mouseleave="mouseLeave" :src="slides[activeIndex].image" alt="">
                     <div class="text">
                         <h3>{{slides[activeIndex].title}}</h3>
                         <p>{{slides[activeIndex].text}}</p>
