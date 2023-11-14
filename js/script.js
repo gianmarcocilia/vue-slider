@@ -52,7 +52,7 @@ const app = createApp({
                 }
             ],
             activeIndex: 0,
-            autoPlay: undefined
+            // autoPlay: undefined
         };
     },
     mounted() {
@@ -75,7 +75,9 @@ const app = createApp({
             }
         },
         showClicked: function (index) {
+            clearInterval(this.autoPlay);
             this.activeIndex = index;
+            this.autoPlay = setInterval(this.showNext, 3000)
         },
         mouseOver: function() {
             clearInterval(this.autoPlay);
